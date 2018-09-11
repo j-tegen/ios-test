@@ -435,13 +435,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S8JP7JFPZ9;
+				DEVELOPMENT_TEAM = G4H4P5GNHC;
 				INFOPLIST_FILE = "Reseersättaren/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Tegen.Reseersa-ttaren";
+				PRODUCT_BUNDLE_IDENTIFIER = "Reseersa-ttaren";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -453,13 +453,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S8JP7JFPZ9;
+				DEVELOPMENT_TEAM = G4H4P5GNHC;
 				INFOPLIST_FILE = "Reseersättaren/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Tegen.Reseersa-ttaren";
+				PRODUCT_BUNDLE_IDENTIFIER = "Reseersa-ttaren";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
