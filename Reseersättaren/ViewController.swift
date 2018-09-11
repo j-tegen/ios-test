@@ -33,6 +33,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var BankAccountInput: UITextField!
     
     let dateFormatter = DateFormatter()
+    let userDefaults = UserDefaults.standard
     
     var paymentPickerData: [String] = [String]()
     var selectedPaymentType: String!
@@ -55,6 +56,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         BankInput.delegate = self
         ClearingInput.delegate = self
         BankAccountInput.delegate = self
+        
+        NameInput.text = userDefaults.object(forKey: "name") as? String
     }
 
     override func didReceiveMemoryWarning() {
@@ -120,12 +123,15 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         setInputValid(input: textField)
     }
     
-    
+    func setUserDefaults() {
+        userDefaults.set(NameInput.text, forKey: "name")
+    }
  
     @IBAction func GoToSendEmail(_ sender: Any) {
         if (!validateInput()) {
             return
         }
+        setUserDefaults()
         performSegue(withIdentifier: "SkanetrafikenToSendEmail", sender: self)
     }
     
