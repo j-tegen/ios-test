@@ -50,6 +50,7 @@ class SendEmailViewController: UIViewController, MFMailComposeViewControllerDele
         return mc
     }
     
+    //UIAlertView är deprecated sedan iOS 9. Denna bör vi byta/tabort
     func showSendMailErrorAlert() {
         let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
         sendMailErrorAlert.show()
@@ -60,14 +61,6 @@ class SendEmailViewController: UIViewController, MFMailComposeViewControllerDele
         controller.dismiss(animated: true, completion: nil)
     }
 
-    
-    
-    
-//
-//    @IBAction func Back(_ sender: Any) {
-//        self.navigationController?.popViewController(animated: true)
-//    }
-//
     override func viewDidLoad() {
         super.viewDidLoad()
         emailText = """

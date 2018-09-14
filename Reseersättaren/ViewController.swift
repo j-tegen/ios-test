@@ -20,7 +20,7 @@ extension UIViewController {
     }
 }
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var PaymentPicker: UIPickerView!
     @IBOutlet weak var NameInput: UITextField!
     @IBOutlet weak var SocialSecurityInput: UITextField!
@@ -31,16 +31,27 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var BankInput: UITextField!
     @IBOutlet weak var ClearingInput: UITextField!
     @IBOutlet weak var BankAccountInput: UITextField!
+    @IBOutlet weak var StationView: UIView!
     
+    @IBOutlet weak var SearchFromSation: UITextField!
+    @IBOutlet weak var StationTableView: UITableView!
     let dateFormatter = DateFormatter()
     let userDefaults = UserDefaults.standard
     
     var paymentPickerData: [String] = [String]()
     var selectedPaymentType: String!
     
+    var mainList = [String]()
+    var stationList = [String]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+        //En delegate lyssnar på en tableview. Om man gör något med den. Self i datasource är min viewcontroller.
+        StationTableView.delegate = self
+        StationTableView.dataSource = self
         
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         
@@ -117,14 +128,39 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         if (textField.text == "") {
             setInputInvalid(input: textField)
         }
+        if(textField == SearchFromSation){
+            searchStation(stationName: SearchFromSation.text!)
+        }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         setInputValid(input: textField)
+        if textField == FromStationInput {
+            stationList = ["Lund C", "Malmö C", "Malmö Hyllie", "Triangeln"]
+            StationView.isHidden = false
+            StationTableView.reloadData()
+        }
+    }
+    
+    
+    
+    
+    @IBAction func CloseStationButton(_ sender: Any) {
+        closeStationView()
+    }
+    
+    func closeStationView() {
+        StationView.isHidden = true
     }
     
     func setUserDefaults() {
         userDefaults.set(NameInput.text, forKey: "name")
+    }
+    
+    func searchStation(stationName: String) {
+        //Temp list of stations. Can we store them somewhere else?
+        mainList = ["Lund C", "Malmö C", "Malmö Hyllie", "Triangeln"]
+        stationList = mainList.filter { $0.lowercased().contains(stationName.lowercased()) }
     }
  
     @IBAction func GoToSendEmail(_ sender: Any) {
@@ -150,6 +186,18 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                 send.paymentType = selectedPaymentType!
             }
         }
+    }
+    
+    // numberOfRowsInsections = hur många rader ska vi ha i listan
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stationList.count
+    }
+    
+    //CellForRowAt = här bygger man hur cellen ska se ut och vad man ska ha i varje cell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier:"row", for: indexPath) as! UITableViewCell
+        cell.textLabel?.text = stationList[indexPath.row]
+        return cell
     }
 }
 
