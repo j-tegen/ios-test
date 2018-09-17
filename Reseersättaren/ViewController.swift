@@ -53,6 +53,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         StationTableView.delegate = self
         StationTableView.dataSource = self
         
+        FromStationInput.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         
         paymentPickerData = ["Kort", "App", "Jojo-kort"]
@@ -125,6 +127,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        print("didendedit")
         if (textField.text == "") {
             setInputInvalid(input: textField)
         }
@@ -142,8 +145,17 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
     }
     
+    //Denna funger. Borde dock försöka få igång textfielddidchange. känns snyggare
+    @IBAction func SearchFromStation(_ sender: Any) {
+        print(SearchFromSation.text!)
+        searchStation(stationName: SearchFromSation.text!)
+    }
     
-    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if(textField == SearchFromSation){
+            print("test")
+        }
+    }
     
     @IBAction func CloseStationButton(_ sender: Any) {
         closeStationView()
@@ -159,8 +171,24 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     func searchStation(stationName: String) {
         //Temp list of stations. Can we store them somewhere else?
-        mainList = ["Lund C", "Malmö C", "Malmö Hyllie", "Triangeln"]
+        mainList = ["Lund C", "Malmö C", "Malmö Hyllie", "Triangeln",
+                    "Lund C",
+                    "CPH Airport",
+                    "Lund Botulfsplatsen",
+                    "Lund Univ-sjukhuset",
+                    "Lund Bankgatan",
+                    "Lund Bantorget",
+                    "Ludvigsborgs friskola",
+                    "Lundavägen 1 Malmö",
+                    "Lundsbäcksgatan 5 Helsingborg",
+                    "Luftkastellet",
+                    "Lugna Gården",
+                    "Lugna gatan 1 Malmö",
+                    "Luhrsjöbaden",
+                    "Lundegatan 1 Simrishamn",
+                    "Lupinvägen 1 Löddeköpinge"]
         stationList = mainList.filter { $0.lowercased().contains(stationName.lowercased()) }
+        StationTableView.reloadData()
     }
  
     @IBAction func GoToSendEmail(_ sender: Any) {
