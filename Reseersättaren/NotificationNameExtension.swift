@@ -9,5 +9,5 @@
 import Foundation
 
 extension Notification.Name {
-    static let fromStation = Notification.Name(rawValue: "")
+    static let stationName = Notification.Name(rawValue: "")
 }

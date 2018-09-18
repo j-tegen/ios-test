@@ -41,6 +41,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     let userDefaults = UserDefaults.standard
     var paymentPickerData: [String] = [String]()
     var selectedPaymentType: String!
+    var stationType = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,12 +65,17 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         NameInput.text = userDefaults.object(forKey: "name") as? String
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handleSelectStationClose), name: Notification.Name.fromStation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSelectStationClose), name: Notification.Name.stationName, object: nil)
     }
     
     @objc func handleSelectStationClose(notification: Notification){
         let station = notification.object as! SearchStationViewController
-        FromStationInput.text = station.selectedStation
+        if(stationType == "to") {
+            ToStationInput.text = station.selectedStation
+        }
+        else if(stationType == "from") {
+            FromStationInput.text = station.selectedStation
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -127,7 +133,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if (textField.text == "") {
-            setInputInvalid(input: textField)
+            //setInputInvalid(input: textField)
         }
     }
     
@@ -135,6 +141,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         setInputValid(input: textField)
         if textField == FromStationInput {
             textField.endEditing(true)
+            stationType = "from"
+            //NotificationCenter.default.post(name: Notification.Name.stationType, object: self)
+            performSegue(withIdentifier: "SelectStation", sender: self)
+        }
+        if textField == ToStationInput {
+            textField.endEditing(true)
+            stationType = "to"
             performSegue(withIdentifier: "SelectStation", sender: self)
         }
     }

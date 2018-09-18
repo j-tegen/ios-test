@@ -57,7 +57,7 @@ class SearchStationViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedStation = stationList[indexPath.row]
-        NotificationCenter.default.post(name: Notification.Name.fromStation, object: self)
+        NotificationCenter.default.post(name: Notification.Name.stationName, object: self)
         _ = navigationController?.popViewController(animated: true)
     }
     
