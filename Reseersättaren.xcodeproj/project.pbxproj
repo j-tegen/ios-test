@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1235C7AE21502E55004BE54F /* SearchStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1235C7AD21502E55004BE54F /* SearchStationViewController.swift */; };
+		1235C7B021504E34004BE54F /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1235C7AF21504E34004BE54F /* NotificationNameExtension.swift */; };
 		8E03325C2140FF3C00DDE7F7 /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03325B2140FF3C00DDE7F7 /* SendEmailViewController.swift */; };
 		8ECDD15D213FECF500A40DC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDD15C213FECF500A40DC9 /* AppDelegate.swift */; };
 		8ECDD15F213FECF500A40DC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDD15E213FECF500A40DC9 /* ViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1235C7AD21502E55004BE54F /* SearchStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStationViewController.swift; sourceTree = "<group>"; };
+		1235C7AF21504E34004BE54F /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 		8E03325B2140FF3C00DDE7F7 /* SendEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailViewController.swift; sourceTree = "<group>"; };
 		8ECDD159213FECF500A40DC9 /* Reseersättaren.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reseersättaren.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ECDD15C213FECF500A40DC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				8ECDD163213FECF900A40DC9 /* Assets.xcassets */,
 				8ECDD165213FECF900A40DC9 /* LaunchScreen.storyboard */,
 				8ECDD168213FECF900A40DC9 /* Info.plist */,
+				1235C7AD21502E55004BE54F /* SearchStationViewController.swift */,
+				1235C7AF21504E34004BE54F /* NotificationNameExtension.swift */,
 			);
 			path = "Reseersättaren";
 			sourceTree = "<group>";
@@ -260,8 +266,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E03325C2140FF3C00DDE7F7 /* SendEmailViewController.swift in Sources */,
+				1235C7AE21502E55004BE54F /* SearchStationViewController.swift in Sources */,
 				8ECDD15F213FECF500A40DC9 /* ViewController.swift in Sources */,
 				8ECDD15D213FECF500A40DC9 /* AppDelegate.swift in Sources */,
+				1235C7B021504E34004BE54F /* NotificationNameExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

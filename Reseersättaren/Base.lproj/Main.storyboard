@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -159,56 +158,6 @@
                                                     <action selector="GoToSendEmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4bj-Sb-uiV"/>
                                                 </connections>
                                             </button>
-                                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oa5-Ug-SOf" userLabel="FromStationView">
-                                                <rect key="frame" x="0.0" y="240" width="375" height="209"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49a-Y0-BOf" userLabel="Cancel button">
-                                                        <rect key="frame" x="309" y="10" width="56" height="30"/>
-                                                        <state key="normal" title="Stäng"/>
-                                                        <connections>
-                                                            <action selector="CloseStationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IpI-1N-ErQ"/>
-                                                        </connections>
-                                                    </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Från station" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W8n-1N-tCS">
-                                                        <rect key="frame" x="15" y="15" width="279" height="30"/>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <action selector="SearchFrom:" destination="BYZ-38-t0r" eventType="valueChanged" id="iNK-8f-e8P"/>
-                                                            <action selector="SearchFromStation:" destination="BYZ-38-t0r" eventType="editingChanged" id="wSh-RE-gaP"/>
-                                                            <action selector="SearchFromStation:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="zCw-jl-TcV"/>
-                                                        </connections>
-                                                    </textField>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SKB-qu-MTM">
-                                                        <rect key="frame" x="15" y="61" width="345" height="128"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="row" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="row" id="Fzh-0t-ZQ7">
-                                                                <rect key="frame" x="0.0" y="28" width="345" height="44"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fzh-0t-ZQ7" id="L1k-ir-CzG">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="43.5"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                </tableViewCellContentView>
-                                                            </tableViewCell>
-                                                        </prototypes>
-                                                    </tableView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="W8n-1N-tCS" firstAttribute="leading" secondItem="Oa5-Ug-SOf" secondAttribute="leading" constant="15" id="0Hq-21-wdu"/>
-                                                    <constraint firstItem="SKB-qu-MTM" firstAttribute="top" secondItem="W8n-1N-tCS" secondAttribute="bottom" constant="15" id="3RX-0X-ELz"/>
-                                                    <constraint firstItem="SKB-qu-MTM" firstAttribute="leading" secondItem="Oa5-Ug-SOf" secondAttribute="leading" constant="15" id="9T3-nr-7u3"/>
-                                                    <constraint firstItem="49a-Y0-BOf" firstAttribute="width" secondItem="Oa5-Ug-SOf" secondAttribute="width" multiplier="0.15" id="C74-gK-p95"/>
-                                                    <constraint firstAttribute="bottom" secondItem="SKB-qu-MTM" secondAttribute="bottom" constant="15" id="Jq5-ms-5kD"/>
-                                                    <constraint firstAttribute="trailing" secondItem="SKB-qu-MTM" secondAttribute="trailing" constant="15" id="OtG-aS-Egw"/>
-                                                    <constraint firstItem="49a-Y0-BOf" firstAttribute="top" secondItem="Oa5-Ug-SOf" secondAttribute="top" constant="10" id="Yph-Ke-Zdr"/>
-                                                    <constraint firstItem="W8n-1N-tCS" firstAttribute="top" secondItem="Oa5-Ug-SOf" secondAttribute="top" constant="15" id="cbU-ip-LPv"/>
-                                                    <constraint firstItem="49a-Y0-BOf" firstAttribute="leading" secondItem="W8n-1N-tCS" secondAttribute="trailing" constant="15" id="fJC-Bx-Ojn"/>
-                                                    <constraint firstAttribute="trailing" secondItem="49a-Y0-BOf" secondAttribute="trailing" constant="10" id="jEk-ds-X2D"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -221,9 +170,7 @@
                                             <constraint firstItem="7C5-Dq-hf3" firstAttribute="leading" secondItem="PFl-nR-lXH" secondAttribute="leading" constant="20" id="646-lG-1rv"/>
                                             <constraint firstAttribute="trailing" secondItem="y7v-4K-P4F" secondAttribute="trailing" id="657-VP-dWL"/>
                                             <constraint firstItem="X1B-wT-mQ1" firstAttribute="top" secondItem="cFb-jL-Liy" secondAttribute="bottom" constant="5" id="7gI-f6-8l6"/>
-                                            <constraint firstItem="Oa5-Ug-SOf" firstAttribute="height" secondItem="PFl-nR-lXH" secondAttribute="height" id="9GG-9c-Bm2"/>
                                             <constraint firstItem="jIV-rT-uWO" firstAttribute="leading" secondItem="PFl-nR-lXH" secondAttribute="leading" constant="99" id="9jK-22-pc7"/>
-                                            <constraint firstItem="Oa5-Ug-SOf" firstAttribute="top" secondItem="PFl-nR-lXH" secondAttribute="top" id="CcD-vT-AJ5"/>
                                             <constraint firstItem="y7v-4K-P4F" firstAttribute="leading" secondItem="PFl-nR-lXH" secondAttribute="leading" id="CfX-hm-wLb"/>
                                             <constraint firstItem="M7E-Ix-FFx" firstAttribute="leading" secondItem="PFl-nR-lXH" secondAttribute="leading" constant="20" id="Cxe-3H-BlK"/>
                                             <constraint firstAttribute="bottom" secondItem="2X2-so-VuO" secondAttribute="bottom" constant="20" id="DlC-p3-OPh"/>
@@ -242,7 +189,6 @@
                                             <constraint firstAttribute="trailing" secondItem="VNU-Jl-b6F" secondAttribute="trailing" id="Vs3-7q-gp8"/>
                                             <constraint firstItem="cFb-jL-Liy" firstAttribute="top" secondItem="y7v-4K-P4F" secondAttribute="bottom" constant="12" id="WU9-qp-wqc"/>
                                             <constraint firstAttribute="trailing" secondItem="MGP-iY-4no" secondAttribute="trailing" constant="20" id="WlQ-w1-Ybz"/>
-                                            <constraint firstItem="Oa5-Ug-SOf" firstAttribute="leading" secondItem="PFl-nR-lXH" secondAttribute="leading" id="XGm-rv-IQh"/>
                                             <constraint firstItem="j9J-Ek-L4E" firstAttribute="leading" secondItem="PFl-nR-lXH" secondAttribute="leading" constant="20" id="YcE-wo-6UL"/>
                                             <constraint firstAttribute="trailing" secondItem="2X2-so-VuO" secondAttribute="trailing" constant="20" id="ZUm-fC-wqK"/>
                                             <constraint firstAttribute="trailing" secondItem="fbS-nn-o1G" secondAttribute="trailing" constant="20" id="a29-xY-FuD"/>
@@ -251,7 +197,6 @@
                                             <constraint firstAttribute="trailing" secondItem="cFb-jL-Liy" secondAttribute="trailing" constant="20" id="cyK-Ak-WEw"/>
                                             <constraint firstAttribute="trailing" secondItem="kgP-q9-Lz0" secondAttribute="trailing" constant="20" id="dLz-5f-MHx"/>
                                             <constraint firstItem="Znc-pe-6SS" firstAttribute="leading" secondItem="PFl-nR-lXH" secondAttribute="leading" constant="20" id="dQk-ST-GRb"/>
-                                            <constraint firstAttribute="trailing" secondItem="Oa5-Ug-SOf" secondAttribute="trailing" id="e2B-2r-t9p"/>
                                             <constraint firstItem="7C5-Dq-hf3" firstAttribute="top" secondItem="hVP-BX-nhr" secondAttribute="bottom" constant="12" id="fFh-UO-wYz"/>
                                             <constraint firstAttribute="trailing" secondItem="wTk-Wr-xBv" secondAttribute="trailing" constant="20" id="fg1-iw-ZyN"/>
                                             <constraint firstItem="fgx-a4-e9f" firstAttribute="leading" secondItem="PFl-nR-lXH" secondAttribute="leading" constant="20" id="fgr-jb-QAX"/>
@@ -314,16 +259,16 @@
                         <outlet property="BankAccountInput" destination="MGP-iY-4no" id="7Li-MR-JbE"/>
                         <outlet property="BankInput" destination="X1B-wT-mQ1" id="hGN-UK-3F5"/>
                         <outlet property="ClearingInput" destination="M7E-Ix-FFx" id="XAj-v5-HQn"/>
+                        <outlet property="ContentView" destination="PFl-nR-lXH" id="6BI-5N-oKJ"/>
                         <outlet property="ExpectedArrivalInput" destination="jsM-rY-FV8" id="xTK-dc-yaO"/>
                         <outlet property="FromStationInput" destination="Mga-KM-XYB" id="YZX-Sm-BVu"/>
+                        <outlet property="FromStationLable" destination="I1L-zB-62q" id="V9N-iC-ZsF"/>
                         <outlet property="NameInput" destination="fgx-a4-e9f" id="wDG-ag-uFV"/>
                         <outlet property="PaymentPicker" destination="VNU-Jl-b6F" id="XYa-hr-atN"/>
-                        <outlet property="SearchFromSation" destination="W8n-1N-tCS" id="ZgM-NM-J7E"/>
                         <outlet property="SocialSecurityInput" destination="k6E-tJ-nUx" id="CPh-mz-e5W"/>
-                        <outlet property="StationTableView" destination="SKB-qu-MTM" id="wZw-L9-N5y"/>
-                        <outlet property="StationView" destination="Oa5-Ug-SOf" id="DMb-zE-A8u"/>
                         <outlet property="ToStationInput" destination="hVP-BX-nhr" id="xcM-UA-DVm"/>
                         <segue destination="Kua-6N-raw" kind="show" identifier="SkanetrafikenToSendEmail" id="7uE-MY-6ih"/>
+                        <segue destination="VhK-7w-b6k" kind="show" identifier="SelectStation" id="N6q-fI-c5P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -372,6 +317,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcv-LL-aL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1871.2" y="69.715142428785612"/>
+        </scene>
+        <!--Välj station-->
+        <scene sceneID="G42-JH-8tT">
+            <objects>
+                <viewController title="Välj station" id="VhK-7w-b6k" customClass="SearchStationViewController" customModule="Reseersa_ttaren" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RcL-KS-sHa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="squ-bk-jcN">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nwj-g5-syt" userLabel="SearchStationTable">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchStationRow" id="XLf-e6-3fR">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XLf-e6-3fR" id="aeF-P9-O3L">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xjr-t6-pjF" firstAttribute="trailing" secondItem="nwj-g5-syt" secondAttribute="trailing" id="2ZE-hz-wqy"/>
+                            <constraint firstItem="nwj-g5-syt" firstAttribute="leading" secondItem="xjr-t6-pjF" secondAttribute="leading" id="EIq-lH-I1q"/>
+                            <constraint firstItem="squ-bk-jcN" firstAttribute="leading" secondItem="xjr-t6-pjF" secondAttribute="leading" id="S5e-WI-Uby"/>
+                            <constraint firstItem="squ-bk-jcN" firstAttribute="trailing" secondItem="xjr-t6-pjF" secondAttribute="trailing" id="UOd-d0-Hql"/>
+                            <constraint firstItem="xjr-t6-pjF" firstAttribute="top" secondItem="squ-bk-jcN" secondAttribute="bottom" constant="-56" id="cqE-0N-ZPv"/>
+                            <constraint firstItem="nwj-g5-syt" firstAttribute="top" secondItem="squ-bk-jcN" secondAttribute="bottom" id="ejg-iV-1FY"/>
+                            <constraint firstItem="xjr-t6-pjF" firstAttribute="bottom" secondItem="nwj-g5-syt" secondAttribute="bottom" id="nu0-gJ-PK4"/>
+                            <constraint firstItem="squ-bk-jcN" firstAttribute="top" secondItem="xjr-t6-pjF" secondAttribute="top" id="ov6-DU-0Kw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xjr-t6-pjF"/>
+                    </view>
+                    <connections>
+                        <outlet property="SearchFromStationTable" destination="nwj-g5-syt" id="Jz9-Du-LBj"/>
+                        <outlet property="SearchStationListInput" destination="squ-bk-jcN" id="PIz-zg-oAD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hhG-BD-dV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1871" y="757"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6qo-g7-eNv">

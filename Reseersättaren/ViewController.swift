@@ -13,14 +13,17 @@ extension UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+
     }
     
     @objc func dismissKeyboard() {
-        view.endEditing(true)
+        self.view.endEditing(true)
     }
 }
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
+
+
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var PaymentPicker: UIPickerView!
     @IBOutlet weak var NameInput: UITextField!
     @IBOutlet weak var SocialSecurityInput: UITextField!
@@ -31,30 +34,19 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var BankInput: UITextField!
     @IBOutlet weak var ClearingInput: UITextField!
     @IBOutlet weak var BankAccountInput: UITextField!
-    @IBOutlet weak var StationView: UIView!
-    
-    @IBOutlet weak var SearchFromSation: UITextField!
-    @IBOutlet weak var StationTableView: UITableView!
+    @IBOutlet weak var FromStationLable: UILabel!
+    @IBOutlet weak var ContentView: UIView!
+   
     let dateFormatter = DateFormatter()
     let userDefaults = UserDefaults.standard
-    
     var paymentPickerData: [String] = [String]()
     var selectedPaymentType: String!
     
-    var mainList = [String]()
-    var stationList = [String]()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //hides keyboard on click outside
         self.hideKeyboardWhenTappedAround()
-        
-        //En delegate lyssnar på en tableview. Om man gör något med den. Self i datasource är min viewcontroller.
-        StationTableView.delegate = self
-        StationTableView.dataSource = self
-        
-        FromStationInput.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        
+       
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         
         paymentPickerData = ["Kort", "App", "Jojo-kort"]
@@ -71,6 +63,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         BankAccountInput.delegate = self
         
         NameInput.text = userDefaults.object(forKey: "name") as? String
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSelectStationClose), name: Notification.Name.fromStation, object: nil)
+    }
+    
+    @objc func handleSelectStationClose(notification: Notification){
+        let station = notification.object as! SearchStationViewController
+        FromStationInput.text = station.selectedStation
     }
 
     override func didReceiveMemoryWarning() {
@@ -127,70 +126,23 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("didendedit")
         if (textField.text == "") {
             setInputInvalid(input: textField)
-        }
-        if(textField == SearchFromSation){
-            searchStation(stationName: SearchFromSation.text!)
         }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         setInputValid(input: textField)
         if textField == FromStationInput {
-            stationList = ["Lund C", "Malmö C", "Malmö Hyllie", "Triangeln"]
-            StationView.isHidden = false
-            StationTableView.reloadData()
+            textField.endEditing(true)
+            performSegue(withIdentifier: "SelectStation", sender: self)
         }
-    }
-    
-    //Denna funger. Borde dock försöka få igång textfielddidchange. känns snyggare
-    @IBAction func SearchFromStation(_ sender: Any) {
-        print(SearchFromSation.text!)
-        searchStation(stationName: SearchFromSation.text!)
-    }
-    
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        if(textField == SearchFromSation){
-            print("test")
-        }
-    }
-    
-    @IBAction func CloseStationButton(_ sender: Any) {
-        closeStationView()
-    }
-    
-    func closeStationView() {
-        StationView.isHidden = true
     }
     
     func setUserDefaults() {
         userDefaults.set(NameInput.text, forKey: "name")
     }
     
-    func searchStation(stationName: String) {
-        //Temp list of stations. Can we store them somewhere else?
-        mainList = ["Lund C", "Malmö C", "Malmö Hyllie", "Triangeln",
-                    "Lund C",
-                    "CPH Airport",
-                    "Lund Botulfsplatsen",
-                    "Lund Univ-sjukhuset",
-                    "Lund Bankgatan",
-                    "Lund Bantorget",
-                    "Ludvigsborgs friskola",
-                    "Lundavägen 1 Malmö",
-                    "Lundsbäcksgatan 5 Helsingborg",
-                    "Luftkastellet",
-                    "Lugna Gården",
-                    "Lugna gatan 1 Malmö",
-                    "Luhrsjöbaden",
-                    "Lundegatan 1 Simrishamn",
-                    "Lupinvägen 1 Löddeköpinge"]
-        stationList = mainList.filter { $0.lowercased().contains(stationName.lowercased()) }
-        StationTableView.reloadData()
-    }
- 
     @IBAction func GoToSendEmail(_ sender: Any) {
         if (!validateInput()) {
             return
@@ -214,18 +166,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                 send.paymentType = selectedPaymentType!
             }
         }
-    }
-    
-    // numberOfRowsInsections = hur många rader ska vi ha i listan
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stationList.count
-    }
-    
-    //CellForRowAt = här bygger man hur cellen ska se ut och vad man ska ha i varje cell
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:"row", for: indexPath) as! UITableViewCell
-        cell.textLabel?.text = stationList[indexPath.row]
-        return cell
+        if (segue.identifier == "SkanetrafikenToSendEmail") { }
     }
 }
 
